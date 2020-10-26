@@ -1,17 +1,27 @@
 import React from "react";
 
-const CharacterDisplay = ({ character }) => {
+const CharacterDisplay = ({ character, gameOver }) => {
     let displayString = character.join("");
-    return (
-        <div className="CharacterDisplay">
-            <p>
-                <span className="active-letter">
-                    {displayString.substring(0, 1).replace(" ", "_")}
-                </span>
-                {displayString.substring(1, displayString.length)}
-            </p>
-        </div>
-    );
+    if (!gameOver) {
+        return (
+            <div className="CharacterDisplay">
+                <p>
+                    <span className="active-letter">
+                        {displayString.substring(0, 1).replace(" ", "_")}
+                    </span>
+                    {displayString.substring(1, displayString.length)}
+                </p>
+            </div>
+        );
+    } else {
+        return (
+            <div className="CharacterDisplay">
+                <p>
+                    ...
+                </p>
+            </div>
+        );
+    }
 };
 
 CharacterDisplay.defaultProps = {

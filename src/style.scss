@@ -1,0 +1,72 @@
+body {
+    background: rgb(245, 139, 87);
+}
+.CharacterDisplay {
+    font-size: 2rem;
+    font-family: "Press Start 2P", cursive;
+}
+
+.GameContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.CharacterDisplay {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.Error {
+    text-shadow: 5px 5px red;
+}
+.active-letter {
+    color: red;
+    border-bottom: solid 1px red;
+    width: 100px;
+    background: yellow;
+}
+.CharacterInput {
+    /* width: 30px; */
+}
+
+.fail-1 {
+    animation: wiggle 8s infinite alternate;
+}
+.fail-2 {
+    animation: wiggle 6s infinite alternate;
+}
+.fail-3 {
+    animation: wiggle 5s infinite alternate;
+}
+.fail-4 {
+    animation: wiggle 4s infinite alternate;
+}
+.fail-5 {
+    animation: wiggle 3s infinite alternate;
+}
+.fail-6 {
+    animation: wiggle 2s infinite alternate;
+}
+
+@keyframes wiggle {
+    0% {
+        transform: rotate(5deg);
+    }
+    20% {
+        transform: rotate(0deg);
+    }
+    40% {
+        transform: rotate(-5deg);
+    }
+    60% {
+        transform: rotate(0deg);
+    }
+    80% {
+        transform: rotate(5deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}

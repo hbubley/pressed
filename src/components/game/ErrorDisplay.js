@@ -8,8 +8,25 @@ import img5 from "../../kanye/6.png";
 
 const ErrorDisplay = ({ errorCount }) => {
     const images = [img0, img1, img2, img3, img4, img5];
-
-    return <img width="500px" src={images[errorCount]} alt="yeezus" />;
+    if (errorCount < 6) {
+        return (
+            <img
+                className={`fail-${errorCount}`}
+                width="500px"
+                src={images[errorCount]}
+                alt="yeezus"
+            />
+        );
+    } else {
+        return (
+            <img
+                className={`fail-${errorCount}`}
+                width="500px"
+                src={img0}
+                alt="yeezus"
+            />
+        );
+    }
 };
 ErrorDisplay.defaultProps = {
     errorCount: 1,

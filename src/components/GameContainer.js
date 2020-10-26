@@ -1,9 +1,8 @@
 import React from "react";
-import CharacterDisplay from "./CharacterDisplay";
-import PlayerInput from "./PlayerInput";
-import ErrorDisplay from "./ErrorDisplay";
-import { KANYE_QUOTES, randomWord } from "../../utils/constants";
-import { Col, Container, Form } from "react-bootstrap";
+import CharacterDisplay from "./game/CharacterDisplay";
+import ErrorDisplay from "./game/ErrorDisplay";
+import { KANYE_QUOTES, randomWord } from "../utils/constants";
+import { Container, Form } from "react-bootstrap";
 import { Paper } from "@material-ui/core";
 
 const GameContainer = () => {
@@ -43,7 +42,7 @@ const GameContainer = () => {
         }
         const handleGameOver = (err) => {
             if (err === 6) {
-                alert("Game Over!");
+                setGameOver(true);
             }
         };
         handleGameOver(error);
@@ -63,12 +62,13 @@ const GameContainer = () => {
 
     return (
         <Container className="GameContainer">
-            <Paper>
+            <Paper style={{ backgroundColor: "#E2DACD" }}>
                 <ErrorDisplay errorCount={error} />
             </Paper>
-            <CharacterDisplay character={displayString} />
+            <CharacterDisplay character={displayString} gameOver={gameOver} />
             <Form.Control
                 className="CharacterInput"
+                disabled={gameOver}
                 value={playerInput}
                 onChange={handlePlayerInput}
                 ref={(input) => input && input.focus()}

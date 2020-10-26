@@ -1,19 +1,24 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import theme from "./utils/theme";
 import { ThemeProvider } from "@material-ui/core/styles";
-import Game from "./components/game/GameContainer";
+import GameContainer from "./components/GameContainer";
 import NavigationBar from "./components/Layout/NavigationBar";
-import "./style.css";
-import { Container } from "react-bootstrap";
+import "./style.scss";
+import { Switch, Route, Link } from "react-router-dom";
+import HomeContainer from "./components/HomeContainer";
 function App() {
     return (
         <ThemeProvider theme={theme}>
-            <Container fluid>
-                <NavigationBar />
-                <Game />
-            </Container>
+            <NavigationBar />
+            <Switch>
+                <Route path="/game">
+                    <GameContainer />
+                </Route>
+                <Route path="/">
+                    <HomeContainer />
+                </Route>
+            </Switch>
         </ThemeProvider>
     );
 }
